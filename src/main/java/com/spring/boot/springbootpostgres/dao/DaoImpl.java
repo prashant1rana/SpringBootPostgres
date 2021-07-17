@@ -28,4 +28,8 @@ public class DaoImpl implements Dao {
     public CompanyDTO getCompanyById(Integer id) {
         return CompanyDTO.fromCompany(repository.findById(id).get());
     }
+
+    public CompanyDTO addCompany(CompanyDTO company) {
+        return CompanyDTO.fromCompany(repository.save(company.toCompany()));
+    }
 }

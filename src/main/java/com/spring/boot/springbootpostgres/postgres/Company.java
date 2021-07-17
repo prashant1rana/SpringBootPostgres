@@ -1,5 +1,7 @@
 package com.spring.boot.springbootpostgres.postgres;
 
+import lombok.Builder;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +12,7 @@ import java.util.Arrays;
 
 @Entity
 @Table(name = "company")
+@Builder
 public class Company implements Serializable {
 
     private static final long serialVersionUID = -2343243243242432341L;

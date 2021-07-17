@@ -7,6 +7,7 @@ import com.spring.boot.springbootpostgres.model.CompanyDTO;
 import lombok.NonNull;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,5 +31,12 @@ public class Controller {
     public @ResponseBody
     CompanyDTO getCompanyById(@NonNull @PathVariable final Integer companyId) {
         return handler.getCompanyById(companyId);
+    }
+
+    @RequestMapping(value = "/company", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public @ResponseBody
+    CompanyDTO addCompany(@NonNull @RequestBody final CompanyDTO company) {
+        return handler.addCompany(company);
     }
 }

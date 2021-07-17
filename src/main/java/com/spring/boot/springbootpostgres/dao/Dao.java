@@ -8,4 +8,6 @@ public interface Dao {
     List<CompanyDTO> getCompanies();
 
     CompanyDTO getCompanyById(Integer id);
+
+    CompanyDTO addCompany(CompanyDTO company);
 }

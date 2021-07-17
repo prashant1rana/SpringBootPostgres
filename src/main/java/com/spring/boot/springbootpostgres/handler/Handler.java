@@ -19,4 +19,8 @@ public class Handler {
     public CompanyDTO getCompanyById(Integer id) {
         return dao.getCompanyById(id);
     }
+
+    public CompanyDTO addCompany(CompanyDTO company) {
+        return dao.addCompany(company);
+    }
 }

@@ -4,6 +4,8 @@ import com.spring.boot.springbootpostgres.postgres.Company;
 import lombok.Builder;
 import lombok.Data;
 
+import java.sql.Date;
+
 @Data
 @Builder
 public class CompanyDTO {
@@ -27,6 +29,17 @@ public class CompanyDTO {
                         companyObj.getSalary() : 0)
                 .joinDate(null != companyObj.getJoinDate() ?
                         companyObj.getJoinDate().getTime() : 0)
+                .build();
+    }
+
+    public Company toCompany() {
+        return Company.builder()
+                .id(this.getId())
+                .name(this.getName())
+                .age(this.getAge())
+                .address(this.getAddress().toCharArray())
+                .salary(this.getSalary())
+                .joinDate(new Date(this.getJoinDate()))
                 .build();
     }
 }
