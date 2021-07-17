@@ -10,4 +10,5 @@ class SpringBootPostgresApplicationTests {
     void contextLoads() {
     }
 
+    //https://www.baeldung.com/spring-boot-testing
 }
