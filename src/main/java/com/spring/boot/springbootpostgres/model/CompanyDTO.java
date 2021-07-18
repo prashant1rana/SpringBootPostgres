@@ -3,11 +3,12 @@ package com.spring.boot.springbootpostgres.model;
 import com.spring.boot.springbootpostgres.postgres.Company;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
 import java.sql.Date;
 
-@Data
 @Builder
+@Getter
 public class CompanyDTO {
     private int id;
     private String name;
@@ -42,4 +43,13 @@ public class CompanyDTO {
                 .joinDate(new Date(this.getJoinDate()))
                 .build();
     }
+
+    public static void main(String[] args) {
+        CompanyDTO dtp = CompanyDTO.builder()
+                .id(122)
+                .address("dkhjjkdhd")
+                .build();
+
+    }
+
 }

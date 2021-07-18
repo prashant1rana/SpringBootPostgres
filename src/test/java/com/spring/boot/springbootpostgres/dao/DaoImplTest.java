@@ -17,7 +17,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
 import java.util.List;
@@ -56,6 +55,18 @@ public class DaoImplTest {
         // Then
         assertEquals(1, companies.size(), "Got correct number of companies");
         assertEquals(122, companies.get(0).getId(), "Company Id Matched");
+    }
+
+    @Test
+    @DisplayName("Testing 0 getCompanies")
+    void testGetCompaniesEMpty() {
+        // Given
+        when(repository.findAll()).thenReturn(ImmutableList.of());
+        // When
+        List<CompanyDTO> companies = dao.getCompanies();
+
+        // Then
+        assertEquals(0, companies.size(), "Got correct number of companies");
     }
 
     @Test

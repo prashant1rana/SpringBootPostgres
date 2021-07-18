@@ -40,3 +40,16 @@ public class Controller {
         return handler.addCompany(company);
     }
 }
+
+
+/**
+ * GET:
+ * http://localhost:8080/company/1223
+ * http://localhost:8080/company?companyId=1223
+ * <p>
+ * POST:
+ * http://localhost:8080/company
+ * {
+ * companyId: 1223
+ * }
+ */

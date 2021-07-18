@@ -17,10 +17,14 @@ public class DaoImpl implements Dao {
     @Override
     public List<CompanyDTO> getCompanies() {
         List<CompanyDTO> companies = new ArrayList();
-        repository.findAll().forEach(company ->
-                companies.add(
-                        CompanyDTO.fromCompany(company)
-                ));
+        try {
+            repository.findAll().forEach(company ->
+                    companies.add(
+                            CompanyDTO.fromCompany(company)
+                    ));
+        } catch (Exception exp) {
+            exp.printStackTrace();
+        }
         return companies;
     }
 
@@ -29,7 +33,9 @@ public class DaoImpl implements Dao {
         return CompanyDTO.fromCompany(repository.findById(id).get());
     }
 
+    @Override
     public CompanyDTO addCompany(CompanyDTO company) {
         return CompanyDTO.fromCompany(repository.save(company.toCompany()));
     }
+
 }
